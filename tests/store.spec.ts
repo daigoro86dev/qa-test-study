@@ -26,7 +26,6 @@ test.describe('Sports Store Tests', () => {
     await productsPage.clickOnProductCardByIndex(5);
     await productDetailPage.clickOnSizeSelectorButtonBySize('40');
     await productDetailPage.clickAddToCartButton();
-    await productDetailPage.clickAddToCartButton();
     await cartModal.clickViewCartButton();
     await topNavbar.clickCustomerLoginAnchor();
     await accountPage.clickMyProfileButton();

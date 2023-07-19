@@ -24,6 +24,5 @@ export default class CookiesModal {
   async clickViewCartButton() {
     await this.addedToCartHeader.isVisible();
     await this.viewCartButton.click();
-    await this.page.pause();
   }
 }
