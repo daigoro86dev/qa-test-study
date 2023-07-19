@@ -2,6 +2,7 @@ import { Locator, Page } from '@playwright/test';
 
 export default class CookiesModal {
   private readonly page: Page;
+  private readonly addedToCartHeader: Locator;
   private readonly membershipGatewayButton: Locator;
   private readonly viewCartButton: Locator;
 
@@ -10,9 +11,10 @@ export default class CookiesModal {
     this.membershipGatewayButton = page.locator(
       "[data-auto-id='membership-gateway-btn']"
     );
-    this.viewCartButton = page
-      .locator("[data-auto-id='added-to-modal'] [href='/cart']")
-      .first();
+    this.viewCartButton = page.locator("[data-auto-id='view-bag-desktop']");
+    this.addedToCartHeader = page.locator(
+      "[data-auto-id='added-to-bag-modal-title']"
+    );
   }
 
   async clickMembershipGatewayButton() {
@@ -20,6 +22,8 @@ export default class CookiesModal {
   }
 
   async clickViewCartButton() {
+    await this.addedToCartHeader.isVisible();
     await this.viewCartButton.click();
+    await this.page.pause();
   }
 }

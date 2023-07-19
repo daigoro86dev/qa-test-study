@@ -7,7 +7,7 @@ export default class HomePage {
     this.page = page;
   }
 
-  async goToHomePage(countrySpecificUrl: string) {
-    await this.page.goto(countrySpecificUrl);
+  async goToHomePage() {
+    await this.page.goto('');
   }
 }

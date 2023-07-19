@@ -8,6 +8,8 @@ import CartModal from '../page-objects/modals/CartModal';
 import CookiesModal from '../page-objects/modals/CookiesModal';
 import RegistrationModal from '../page-objects/modals/RegistrationModal';
 import LoginModal from '../page-objects/modals/LoginModal';
+import AccountPage from '../page-objects/AccountPage';
+import AccountLoginPage from '../page-objects/AccountLoginPage';
 
 type CustomFixture = {
   // Pages
@@ -15,6 +17,8 @@ type CustomFixture = {
   productsPage: ProductsPage;
   productDetailPage: ProductDetailPage;
   cartPage: CartPage;
+  accountPage: AccountPage;
+  accountLoginPage: AccountLoginPage;
   // Common Components
   topNavbar: TopNavbar;
   // Modals
@@ -34,8 +38,14 @@ export const test = base.extend<CustomFixture>({
   productDetailPage: async ({ page }, use) => {
     await use(new ProductDetailPage(page));
   },
+  accountPage: async ({ page }, use) => {
+    await use(new AccountPage(page));
+  },
   cartPage: async ({ page }, use) => {
     await use(new CartPage(page));
+  },
+  accountLoginPage: async ({ page }, use) => {
+    await use(new AccountLoginPage(page));
   },
   topNavbar: async ({ page }, use) => {
     await use(new TopNavbar(page));

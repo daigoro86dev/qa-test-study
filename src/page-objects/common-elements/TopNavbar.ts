@@ -15,7 +15,7 @@ export default class TopNavbar {
     );
     this.cartButton = page.locator("[data-auto-id='cart-button']");
     this.navigationItems = page.locator(
-      "[data-auto-id='cms-footer-dt-main'] [data-auto-id='navigation-link'] span"
+      "[data-auto-id='cms-footer-dt-main'] [data-auto-id='navigation-link']"
     );
   }
 

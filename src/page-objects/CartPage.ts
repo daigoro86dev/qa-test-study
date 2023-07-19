@@ -11,6 +11,12 @@ export default class CartPage {
     );
   }
 
+  async gotoCartPage() {
+    // Since the cart button doesn't list existing items on login
+    // We'll use this to check the cart page status
+    await this.page.goto('/cart');
+  }
+
   getProductDetailByIndex(productCardIndex: number) {
     return this.productDetailCards.nth(productCardIndex);
   }

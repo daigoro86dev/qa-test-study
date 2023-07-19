@@ -1,8 +1,7 @@
-import { Locator, Page } from '@playwright/test';
+import { Locator, Page, expect } from '@playwright/test';
 
 export default class ProductDetailPage {
   private readonly page: Page;
-  private readonly sizeSelectorButton: Locator;
   private readonly addToCartButton: Locator;
 
   constructor(page: Page) {
@@ -11,7 +10,11 @@ export default class ProductDetailPage {
   }
 
   async clickOnSizeSelectorButtonBySize(size: string) {
-    await this.page.getByRole('button', { name: size, exact: true }).click();
+    await this.page.pause();
+    await this.page
+      .locator("[data-auto-id='size-selector']")
+      .getByRole('button', { name: size, exact: true })
+      .click();
   }
 
   async clickAddToCartButton() {

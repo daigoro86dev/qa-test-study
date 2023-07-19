@@ -1,4 +1,4 @@
-import { Locator, Page } from '@playwright/test';
+import { Locator, Page, expect } from '@playwright/test';
 import { FakeUser } from '../../utils/FakeDataUtil';
 
 export default class RegistrationModal {
@@ -36,6 +36,6 @@ export default class RegistrationModal {
     await this.marketPaidMediaCheckbox.check();
     await this.termsAndConditionsCheckbox.check();
     await this.registerButton.click();
-    console.log('Test');
+    await expect(this.registerButton).not.toBeVisible({ timeout: 100000 });
   }
 }
